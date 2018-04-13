@@ -1,0 +1,19 @@
+
+/*SEARCH PAGE*/
+
+#search-header
+{
+	text-align: center;
+	margin: 50px auto;
+}
+
+#search-row
+{
+	text-align: center;
+	margin: 100px auto;
+}
+
+.submit-query-btn
+{
+	width: 60%;
+}
