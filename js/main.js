@@ -2,10 +2,10 @@ var TwitterStream = require("twitter-stream-api"),
   fs = require("fs");
 
 var keys = {
-  consumer_key: "VRpQ4je2zktzz5NequKPToZZl",
-  consumer_secret: "hek5GiRs3tASXE5eLEvq8hzupRNO6QeXnS3WdBrYlFLUmrxZ18",
-  token: "4746188238-wMnfon2mdpvWpuWyU1KfJZsRUjVTzM22wnLmqkR",
-  token_secret: "XJxEODMXLs0RSHGdkcV9NfWuDMw8HeYrYHHy6YdS9Otit"
+  consumer_key: "",
+  consumer_secret: "",
+  token: "",
+  token_secret: ""
 };
 
 var Twitter = new TwitterStream(keys, false);
