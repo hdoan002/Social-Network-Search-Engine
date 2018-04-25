@@ -1,2 +1,5 @@
 # ignore folder named node_modules
 node_modules/
+
+# ignore folder with large json files
+json_files/
