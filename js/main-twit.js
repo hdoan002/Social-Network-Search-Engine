@@ -1,15 +1,20 @@
 var Twit = require('twit');
   fs = require("fs");
 
+if (process.platform === "win32") {
+  var rl = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
 var T = new Twit({
-	consumer_key: '',
-	consumer_secret: '',
-	access_token: '',
-	access_token_secret: '', 
+	consumer_key: 'VRpQ4je2zktzz5NequKPToZZl',
+	consumer_secret: 'hek5GiRs3tASXE5eLEvq8hzupRNO6QeXnS3WdBrYlFLUmrxZ18',
+	access_token: '4746188238-wMnfon2mdpvWpuWyU1KfJZsRUjVTzM22wnLmqkR',
+	access_token_secret: 'XJxEODMXLs0RSHGdkcV9NfWuDMw8HeYrYHHy6YdS9Otit', 
 });
 
 var stream = T.stream('statuses/filter', {
-  // track: "javascript",
   // include stall warnings
   stall_warnings: true,
   //include tweets only in english
@@ -46,9 +51,27 @@ stream.on('error', function (error) {
   console.log(error);
 });
 
-// var file = (fs.createWriteStream("/Users/Steve Guardado/Desktop/CS172/Social-Network-Search-Engine/json_files/geo-tweets-US_2.json"));
+// array to hold all collected tweets
+tweetArr = [];
 
 stream.on('tweet', function(tweet) {
-	fs.appendFile('../json_files/geo-tweets-US_2.json', JSON.stringify(tweet), 'utf-8');
+  tweetArr.push(JSON.stringify(tweet));
 });
 	
+// code to handle when Ctrl + C is pressed
+rl.on("SIGINT", function () {
+    process.emit("SIGINT");
+  });
+};
+
+// when ctrl + c is pressed, then write array to JSON file
+process.on("SIGINT", function () {
+  fs.appendFile('../../../json_files/geo-tweets-US-6.json', '[' + tweetArr + ']', 'utf-8', (err) => {
+
+    if (err) throw err;
+
+    else process.exit();
+
+  });
+
+});
