@@ -8,10 +8,10 @@ if (process.platform === "win32") {
   });
 
 var T = new Twit({
-	consumer_key: 'VRpQ4je2zktzz5NequKPToZZl',
-	consumer_secret: 'hek5GiRs3tASXE5eLEvq8hzupRNO6QeXnS3WdBrYlFLUmrxZ18',
-	access_token: '4746188238-wMnfon2mdpvWpuWyU1KfJZsRUjVTzM22wnLmqkR',
-	access_token_secret: 'XJxEODMXLs0RSHGdkcV9NfWuDMw8HeYrYHHy6YdS9Otit', 
+	consumer_key: '',
+	consumer_secret: '',
+	access_token: '',
+	access_token_secret: '', 
 });
 
 var stream = T.stream('statuses/filter', {
