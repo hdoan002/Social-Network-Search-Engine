@@ -1,11 +1,5 @@
 var Twit = require('twit');
-  fs = require("fs");
-
-if (process.platform === "win32") {
-  var rl = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+fs = require("fs");
 
 var T = new Twit({
 	consumer_key: 'VRpQ4je2zktzz5NequKPToZZl',
@@ -51,27 +45,25 @@ stream.on('error', function (error) {
   console.log(error);
 });
 
-// array to hold all collected tweets
-tweetArr = [];
+var j = 0;
+var k = 0;
 
 stream.on('tweet', function(tweet) {
-  tweetArr.push(JSON.stringify(tweet));
-});
-	
-// code to handle when Ctrl + C is pressed
-rl.on("SIGINT", function () {
-    process.emit("SIGINT");
-  });
-};
+  //increment j every time a tweet is received to keep count 
+  j++;
 
-// when ctrl + c is pressed, then write array to JSON file
-process.on("SIGINT", function () {
-  fs.appendFile('../../../json_files/geo-tweets-US-6.json', '[' + tweetArr + ']', 'utf-8', (err) => {
+  fs.appendFile('../json_files/geo-tweets-US' + '-' + k + '.json', JSON.stringify(tweet) + ',', 'utf-8', (err) => {
 
     if (err) throw err;
 
-    else process.exit();
+    // after getting 30,000 tweets, write to a new, different JSON file and restart tweet counter (j) and increment file number (k)
+    else if(j == 30000)
+    {
+      j = 0;
+      k++;
+    }
 
   });
 
 });
+	
