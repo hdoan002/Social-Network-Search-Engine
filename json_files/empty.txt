@@ -1,0 +1,1 @@
+-Keep this here or else folder is not included. Git ignores any json files in here due to there size
