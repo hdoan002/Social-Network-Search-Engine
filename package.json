@@ -1,0 +1,24 @@
+{
+  "name": "Social-Network-Search-Engine",
+  "version": "1.0.0",
+  "description": "Social network search engine for UCR CS172 Information Retrieval.",
+  "main": "index.js",
+  "dependencies": {
+    "twit": "^2.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdoan002/Social-Network-Search-Engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdoan002/Social-Network-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/hdoan002/Social-Network-Search-Engine#readme"
+}
