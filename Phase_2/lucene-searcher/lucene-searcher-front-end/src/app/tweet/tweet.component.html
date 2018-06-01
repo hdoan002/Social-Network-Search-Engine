@@ -1,0 +1,47 @@
+
+
+<div class="search">
+	<input #searchBox id="search-box"
+	(keyup.enter)="search(searchBox.value)"/>
+	<button id="search-button" (click)="search(searchBox.value)">Search</button>	
+</div>
+
+<div id="results-title">
+	<h2>Search Results:</h2>
+</div>
+
+<div id="results-body">
+	<ul class="tweets-list" *ngIf="tweets">
+	  <li *ngFor="let tweet of tweets">
+	  	<div id="user-content">
+	  		<div layout="row">
+	  			<div flex="20" id="user-pic">
+	  				<img src={{tweet.profilePic}} onerror="this.src='http://digitalspyuk.cdnds.net/17/13/320x320/gallery-1490989538-egg.jpg';">
+			 		<span flex="10" id="user-info">
+			  			{{tweet.name}}
+			  			(@{{tweet.username}})
+	  				</span>
+	  			</div>
+	  		</div>
+	  		<div layout="row">
+			  	<div flex="70" id="user-tweet">
+			  		<div id="user-tweet-title">{{tweet.urlTitle}}</div>
+			  		<div id="user-tweet-text">{{tweet.body}}</div>
+			  	</div>
+  		  		<div id="user-tweet-loc">
+		  			<span>Location: {{tweet.place}} </span> 
+		  			<br>
+		  			<span id="user-tweet-src">Source: {{tweet.source}}</span>
+		  			<br>
+		  			<span id="user-tweet-time">Created at: {{tweet.timeCreated}}</span>
+		  			<br>
+		  			<span id="user-tweet-tweet-re"><img src="http://simpleicon.com/wp-content/uploads/retweet.png">: {{tweet.tweetStats[0]}}</span>
+		  			<span id="user-tweet-tweet-fav"><img src="https://i.pinimg.com/originals/3d/65/db/3d65dbcecc72931a3b7a45a70d291892.png">: {{tweet.tweetStats[1]}}</span>
+		  		</div>
+	  		</div>
+	  	</div>
+	  </li>
+	</ul>
+</div>
+
+<h4 id="footer" *ngIf="lastSearch">Last search query: <i>"{{lastSearch}}"</i></h4>

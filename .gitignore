@@ -3,3 +3,11 @@ node_modules/
 
 # ignore folder with large json files
 json_files/*.json
+
+# Json files
+/Phase_2/Lucene/src/edu/ucr/cs/sguar001/JSON
+
+/Phase_2/Lucene/target/classes/edu/ucr/cs/sguar001/JSON
+
+# Index files
+/Phase_2/Lucene/src/edu/ucr/cs/sguar001/Index

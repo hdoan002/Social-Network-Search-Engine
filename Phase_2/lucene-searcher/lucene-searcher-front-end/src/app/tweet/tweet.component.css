@@ -1,0 +1,134 @@
+/* tweetComponent's private CSS styles */
+
+.tweets-list
+{
+  list-style-type: none;
+}
+.tweets-list li 
+{
+  cursor: pointer;
+  position: relative;
+  left: 0;
+
+  background-color: #fff;
+
+  margin: 1.2em;
+  padding: 10px 10px;
+  height: 15.6em;
+
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.tweets-list li:hover 
+{
+  color: white;
+  background-color: #5DADE2;
+  left: .1em;
+
+  transition-duration: 0.3s;
+}
+
+.search
+{
+  text-align: center;
+  margin-top: 35px;
+}
+
+#search-box
+{
+  font-size: 18px;
+  height: 36px;
+  width: 30%;
+}
+
+#search-button
+{
+  margin-left: 15px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  border-radius: 8px;
+}
+
+#results-title
+{
+  margin-left: 10%;
+}
+
+#results-body
+{
+  width: 62%;
+  display: table;
+  margin: 10px auto;
+}
+
+#footer
+{
+  text-align: center;
+}
+
+/*individual tweet content*/
+
+#user-pic > img
+{
+  width: 10%;
+  height: 10%;
+}
+
+#user-info
+{
+  position: absolute;
+  top: 20%;
+  margin-left: 10px;
+}
+
+#user-tweet
+{
+  position: relative;
+  bottom: 3.0em;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 1.5em;
+}
+
+#user-tweet-text
+{
+  margin: 0 auto;
+  width: 70%;
+}
+
+#user-tweet-loc
+{
+  width: 33%;
+  position: absolute;
+  right: 0.8em;
+  bottom: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#user-tweet-tweet-fav
+{
+  margin-left: 10px;
+}
+
+#user-tweet-tweet-fav > img
+{
+  width: 7%;
+  position: relative;
+  top: 8px;
+}
+
+#user-tweet-tweet-re > img
+{
+  width: 7%;
+  position: relative;
+  top: 8px;
+}
