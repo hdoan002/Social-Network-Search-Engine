@@ -49,20 +49,38 @@ var j = 0;
 var k = 0;
 
 stream.on('tweet', function(tweet) {
+
+//append opening array bracket on intial start
+  if(j == 0)
+  {
+    fs.appendFile('../json_files/geo-tweets-US' + '-' + k + '.json', '[', 'utf-8', (err) => {
+
+      if (err) throw err;
+
+   });
+  }
   //increment j every time a tweet is received to keep count 
   j++;
 
-  fs.appendFile('../json_files/geo-tweets-US' + '-' + k + '.json', JSON.stringify(tweet) + ',', 'utf-8', (err) => {
+  if (j < 3000)
+  {
+    fs.appendFile('../json_files/geo-tweets-US' + '-' + k + '.json', JSON.stringify(tweet) + ',', 'utf-8', (err) => {
 
-    if (err) throw err;
+      if (err) throw err;
 
-    // after getting 30,000 tweets, write to a new, different JSON file and restart tweet counter (j) and increment file number (k)
-    else if(j == 30000)
-    {
-      j = 0;
-      k++;
-    }
+    });
+  }
 
-  });
+  // after getting 30,000 tweets, write to a new, different JSON file and restart tweet counter (j) and increment file number (k)
+  else if(j >= 3000)
+  {
+//append closing array bracket after getting 3000 tweets
+    fs.appendFile('../json_files/geo-tweets-US' + '-' + k + '.json', JSON.stringify(tweet) + ']', 'utf-8', (err) => {
 
+      if (err) throw err;
+
+    });
+    j = 0;
+    k++;
+  }
 });
